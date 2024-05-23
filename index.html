@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="text-up">
+      <p class="text">My</p>
+      <p class="text">Todo</p>
+      <img src="favicon/android-chrome-512x512.png" />
+    </div>
+    <div class="buttons">
+      <button class="filter-btn all-btn" data-bind="click: showAll">All</button>
+      <button class="filter-btn complete-btn" data-bind="click: showComplete">Complete</button>
+      <button class="filter-btn active-btn" data-bind="click: showActive">Active</button>
+    </div>
+    <div class="all-items">
+      <div class="card">
+        <div class="up">
+          <input type="text" class="input-box" data-bind="value: newTodo" />
+          <div class="add-btn num" data-bind="click: addTodo">ADD</div>
+        </div>
+        <div class="down">
+          <p class="text-down">My Items</p>
+        </div>
+
+        <div class="container" data-bind="foreach: filteredTodos">
+          <div class="todo-items">
+            <p class="todotext" data-bind="text: title, style: { textDecoration: complete() ? 'line-through' : 'none' }"></p>
+            <div class="allbtns">
+              <button class="btn Complate" data-bind="click: toggleComplete, text: complete() ? 'Incomplete' : 'Complete'"></button>
+              <button class="btn Delete" data-bind="click: $parent.deleteTodo">Delete</button>
+              <button class="btn Edit" data-bind="click: $parent.editTodo">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="knockout-3.5.1.js"></script>
+    <script src="app.js">
+      
+    </script>
+  </body>
+</html>
